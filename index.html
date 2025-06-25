@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Rewards Mini App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="user-details">
+                <h2 id="userName">Loading...</h2>
+                <p id="userId">ID: Loading...</p>
+            </div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>Balance</h3>
+                <p id="userBalance">0</p>
+                <div class="stat-icon"><i class="fas fa-coins"></i></div>
+            </div>
+            <div class="stat-box">
+                <h3>Tasks Completed</h3>
+                <p id="tasksCompleted">0</p>
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+            </div>
+        </div>
+
+        <div class="tasks-section">
+            <h3>Available Tasks</h3>
+            <div class="tasks-container">
+                <div class="task-card" data-task-type="quick" data-reward="10">
+                    <div class="task-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="task-details">
+                        <h4>Quick Task</h4>
+                        <p>Complete a simple task</p>
+                    </div>
+                    <div class="task-reward">+10</div>
+                </div>
+                
+                <div class="task-card" data-task-type="daily" data-reward="25">
+                    <div class="task-icon"><i class="fas fa-calendar-day"></i></div>
+                    <div class="task-details">
+                        <h4>Daily Challenge</h4>
+                        <p>Complete your daily task</p>
+                    </div>
+                    <div class="task-reward">+25</div>
+                </div>
+                
+                <div class="task-card" data-task-type="special" data-reward="50">
+                    <div class="task-icon"><i class="fas fa-star"></i></div>
+                    <div class="task-details">
+                        <h4>Special Task</h4>
+                        <p>Complete a special challenge</p>
+                    </div>
+                    <div class="task-reward">+50</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="withdrawal-form">
+            <h3>Withdraw Funds</h3>
+            <div class="input-group">
+                <label for="withdrawAmount">Amount</label>
+                <input type="number" id="withdrawAmount" placeholder="Enter amount">
+            </div>
+            <button class="tg-button" id="withdrawBtn"><i class="fas fa-wallet"></i> Submit Withdrawal</button>
+        </div>
+
+        <div class="history-section">
+            <h3>Recent Activity</h3>
+            <div id="activityList" class="activity-list">
+                <!-- Activity items will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="supabase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
